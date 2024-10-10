@@ -89,7 +89,7 @@ Create classifying labels (e.g. `Positive`, `Negative` and `Neutral`), paste you
 #     }
 #     """
 #     ):
-st.sidebar.image(r'C:\Users\Sorawitr\Desktop\streamlit\logo.png') 
+st.sidebar.image('logo.png') 
 st.markdown("""
 <style>
     div[data-testid="stSidebarUserContent"] img {

@@ -6,7 +6,7 @@ st.title('🤖 Typhoon Thai Chatbot')
 
 #################################################
 #Sidebar
-st.sidebar.image(r'C:\Users\Sorawitr\Desktop\streamlit\logo.png') 
+st.sidebar.image('logo.png') 
 st.markdown("""
 <style>
     div[data-testid="stSidebarUserContent"] img {
