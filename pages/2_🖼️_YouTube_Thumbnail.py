@@ -1,5 +1,7 @@
 import streamlit as st
 
+
+st.set_page_config(layout='centered', page_title="Youtube", page_icon="😎")
 st.title('🖼️ YouTube Thumbnail Image Extractor')
 
 #################################################

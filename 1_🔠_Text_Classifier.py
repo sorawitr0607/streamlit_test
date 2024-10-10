@@ -14,11 +14,10 @@ from streamlit_tags import st_tags
 #     layout = "centered"
 # else:
 #     layout = "wide" if st.session_state.widen else "centered"
-layout = "wide"
 #######################################################
 
 # The code below is for the title and logo.
-st.set_page_config(layout=layout, page_title="Zero-Shot Text Classifier", page_icon="😎")
+st.set_page_config(layout='wide', page_title="Zero-Shot Text Classifier", page_icon="😎")
 
 #######################################################
 # Set up session state so app interactions don't reset the app.

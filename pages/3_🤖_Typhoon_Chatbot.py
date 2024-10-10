@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
-import os
 
+st.set_page_config(layout='centered', page_title="Typhoon API", page_icon="😎")
 st.title('🤖 Typhoon Thai Chatbot')
 
 #################################################
@@ -45,6 +45,10 @@ st.sidebar.markdown(
 
 
 #################################################
+def reset():
+    st.session_state.messages = []
+    st.session_state.reset = False
+
 api_key_secrets= st.secrets['API_KEY_TYPHOON']
 
 client = OpenAI(
@@ -54,6 +58,8 @@ client = OpenAI(
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+if "reset" not in st.session_state:
+    st.session_state.reset = False
 
 # Display the existing chat messages via `st.chat_message`.
 for message in st.session_state.messages:
@@ -89,3 +95,7 @@ if prompt := st.chat_input("ลองพิมพ์อะไรหน่อย"
     with st.chat_message("assistant"):
         response = st.write_stream(stream)
     st.session_state.messages.append({"role": "assistant", "content": response})
+    st.session_state.reset = True
+
+if st.session_state.reset:
+    st.button('reset chat',on_click=reset)
