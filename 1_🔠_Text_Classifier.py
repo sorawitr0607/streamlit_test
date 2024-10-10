@@ -5,24 +5,8 @@ import pandas as pd
 # Import for API calls
 import requests
 
-# Import for navbar
-from streamlit_option_menu import option_menu
-
 # Import for dyanmic tagging
-from streamlit_tags import st_tags, st_tags_sidebar
-
-# Imports for aggrid
-# from st_aggrid import AgGrid
-# from st_aggrid import AgGrid
-# from st_aggrid.grid_options_builder import GridOptionsBuilder
-# from st_aggrid.shared import JsCode
-# from st_aggrid import GridUpdateMode, DataReturnMode
-import time
-from streamlit_extras.stylable_container import stylable_container
-
-# # Import for keyboard shortcuts
-# from dashboard_utils.gui import keyboard_to_url
-# from dashboard_utils.gui import load_keyboard_class
+from streamlit_tags import st_tags
 
 #######################################################
 # The code below is to control the layout width of the app.
