@@ -12,11 +12,11 @@ from streamlit_option_menu import option_menu
 from streamlit_tags import st_tags, st_tags_sidebar
 
 # Imports for aggrid
-from st_aggrid import AgGrid
-from st_aggrid import AgGrid
-from st_aggrid.grid_options_builder import GridOptionsBuilder
-from st_aggrid.shared import JsCode
-from st_aggrid import GridUpdateMode, DataReturnMode
+# from st_aggrid import AgGrid
+# from st_aggrid import AgGrid
+# from st_aggrid.grid_options_builder import GridOptionsBuilder
+# from st_aggrid.shared import JsCode
+# from st_aggrid import GridUpdateMode, DataReturnMode
 import time
 from streamlit_extras.stylable_container import stylable_container
 
@@ -277,25 +277,45 @@ elif (submit_button or st.session_state.valid_inputs_received) and st.session_st
     # The code below is for Ag-grid
 
         
-    gb = GridOptionsBuilder.from_dataframe(df)
-    # enables pivoting on all columns
-    gb.configure_default_column(
-        enablePivot=True, enableValue=True, enableRowGroup=True
-    )
-    gb.configure_selection(selection_mode="multiple", use_checkbox=True)
-    gb.configure_side_bar()
-    gridOptions = gb.build()
+    # gb = GridOptionsBuilder.from_dataframe(df)
+    # # enables pivoting on all columns
+    # gb.configure_default_column(
+    #     enablePivot=True, enableValue=True, enableRowGroup=True
+    # )
+    # gb.configure_selection(selection_mode="multiple", use_checkbox=True)
+    # gb.configure_side_bar()
+    # gridOptions = gb.build()
 
-    response = AgGrid(
-        df,
-        gridOptions=gridOptions,
-        enable_enterprise_modules=True,
-        update_mode=GridUpdateMode.MODEL_CHANGED,
-        data_return_mode=DataReturnMode.FILTERED_AND_SORTED,
-        height=300,
-        fit_columns_on_grid_load=False,
-        configure_side_bar=True,
-    )
+    # response = AgGrid(
+    #     df,
+    #     gridOptions=gridOptions,
+    #     enable_enterprise_modules=True,
+    #     update_mode=GridUpdateMode.MODEL_CHANGED,
+    #     data_return_mode=DataReturnMode.FILTERED_AND_SORTED,
+    #     height=300,
+    #     fit_columns_on_grid_load=False,
+    #     configure_side_bar=True,
+    # )
+    
+    columns = {}
+    
+    # Iterate over the rows of the DataFrame
+    for index, row in df.iterrows():
+        for label, score in zip(row['labels'], row['classification scores']):
+            column_name = f'{label}_Labels_Score'
+            if column_name not in columns:
+                columns[column_name] = []
+            columns[column_name].append(score)
+    
+    # Add the new columns to the DataFrame
+    for col_name, col_values in columns.items():
+        df[col_name] = col_values
+    
+    # Drop the original 'labels' and 'classification scores' columns
+    df = df.drop(columns=['labels', 'classification scores'])
+
+
+    st.dataframe(df,hide_index=True,width=1500)
     # The code below is for the download button
 
     cs, c1 = st.columns([2, 2])
