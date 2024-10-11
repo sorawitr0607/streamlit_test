@@ -3,6 +3,7 @@ from streamlit_pandas_profiling import st_profile_report
 import pandas as pd
 import time
 from pandas_profiling import ProfileReport
+from pydantic_settings import BaseSettings
 #import ydata_profiling
 # import os
 st.set_page_config(layout='wide', page_title="EDA", page_icon="😎")
