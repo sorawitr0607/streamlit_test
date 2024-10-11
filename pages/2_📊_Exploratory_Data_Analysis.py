@@ -1,10 +1,9 @@
 import streamlit as st
 #from streamlit_ydata_profiling import st_profile_report
 import pandas as pd
-import time
 # from pandas_profiling import ProfileReport
 # from pydantic_settings import BaseSettings
-import ydata_profiling
+# import ydata_profiling
 # import os
 st.set_page_config(layout='wide', page_title="EDA", page_icon="😎")
 st.title('📊 Exploratory Data Analysis')
@@ -83,13 +82,13 @@ if uploaded_file is not None:
     st.session_state.file_example_upload = False
     df = pd.read_csv(uploaded_file)
     st.info('Uploaded File')
-    pr = df.profile_report()
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.markdown(pr)
+    # pr = df.profile_report()
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    st.dataframe(df)
     #st_profile_report(pr)
     
 elif st.session_state.file_example_upload == False:
@@ -99,13 +98,13 @@ else:
     st.session_state.file_example_upload = True
     df = load_data()
     st.info('Loaded Example Data')
-    pr = df.profile_report()
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st.markdown(pr)
+    # pr = df.profile_report()
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    # st.toast('🚨 Analysing Data, Please Wait !! 🚨')
+    st.dataframe(df)
     #st_profile_report(pr)
 
     
