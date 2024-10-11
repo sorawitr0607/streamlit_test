@@ -1,9 +1,7 @@
-Python==3.11
 openai==1.51.2
 pandas==2.2.3
 Requests==2.32.3
 streamlit==1.39.0
 streamlit_tags==1.2.8
-streamlit_ydata_profiling==0.2.1
 ydata_profiling==4.10.0
 

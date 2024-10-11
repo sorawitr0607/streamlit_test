@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_ydata_profiling import st_profile_report
+#from streamlit_ydata_profiling import st_profile_report
 import pandas as pd
 import time
 # from pandas_profiling import ProfileReport
@@ -89,7 +89,8 @@ if uploaded_file is not None:
     st.toast('🚨 Analysing Data, Please Wait !! 🚨')
     st.toast('🚨 Analysing Data, Please Wait !! 🚨')
     st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st_profile_report(pr)
+    st.markdown(pr)
+    #st_profile_report(pr)
     
 elif st.session_state.file_example_upload == False:
     st.session_state.file_upload = False
@@ -104,7 +105,8 @@ else:
     st.toast('🚨 Analysing Data, Please Wait !! 🚨')
     st.toast('🚨 Analysing Data, Please Wait !! 🚨')
     st.toast('🚨 Analysing Data, Please Wait !! 🚨')
-    st_profile_report(pr)
+    st.markdown(pr)
+    #st_profile_report(pr)
 
     
 
