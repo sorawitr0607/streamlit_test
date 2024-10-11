@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_pandas_profiling import st_profile_report
 import pandas as pd
 import time
-import ydata_profiling
+#import ydata_profiling
 # import os
 st.set_page_config(layout='wide', page_title="EDA", page_icon="😎")
 st.title('📊 Exploratory Data Analysis')
