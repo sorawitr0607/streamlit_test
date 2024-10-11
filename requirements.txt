@@ -2,7 +2,6 @@ openai==1.51.2
 pandas==2.2.3
 Requests==2.32.3
 streamlit==1.39.0
-streamlit_pandas_profiling==0.1.3
 streamlit_tags==1.2.8
-setuptools>=58.0.0,<65.0.0
-ydata-profiling
+streamlit_ydata_profiling==0.2.1
+ydata_profiling==4.10.0
