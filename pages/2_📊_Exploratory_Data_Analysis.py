@@ -1,6 +1,5 @@
 import streamlit as st
 from streamlit_pandas_profiling import st_profile_report
-import ydata_profiling
 import shap
 import pandas as pd
 import time
