@@ -3,6 +3,10 @@ from streamlit_pandas_profiling import st_profile_report
 import shap
 import pandas as pd
 import time
+try:
+    from distutils.version import LooseVersion
+except ModuleNotFoundError:
+    from packaging.version import parse as LooseVersion
 
 # import os
 st.set_page_config(layout='wide', page_title="EDA", page_icon="😎")
