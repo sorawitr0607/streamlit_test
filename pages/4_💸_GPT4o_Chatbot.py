@@ -46,8 +46,8 @@ st.sidebar.markdown(
 
 #################################################
 def reset():
-    st.session_state.messages = []
-    st.session_state.reset = False
+    st.session_state.messages_gpt = []
+    st.session_state.reset_gpt = False
 
 api_key_secrets= st.secrets['API_KEY_P_KOH']
 
@@ -55,13 +55,13 @@ client = OpenAI(
     api_key=api_key_secrets,
 )
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-if "reset" not in st.session_state:
-    st.session_state.reset = False
+if "messages_gpt" not in st.session_state:
+    st.session_state.messages_gpt = []
+if "reset_gpt" not in st.session_state:
+    st.session_state.reset_gpt = False
 
 # Display the existing chat messages via `st.chat_message`.
-for message in st.session_state.messages:
+for message in st.session_state.messages_gpt:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
@@ -70,7 +70,7 @@ for message in st.session_state.messages:
 if prompt := st.chat_input("Say something"):
 
     # Store and display the current prompt.
-    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.session_state.messages_gpt.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
         
@@ -81,7 +81,7 @@ if prompt := st.chat_input("Say something"):
                     "role":  m["role"],
                     "content": m["content"],
                 }
-                for m in st.session_state.messages
+                for m in st.session_state.messages_gpt
             ],
             max_tokens=512,
             stream=True,)
@@ -90,8 +90,8 @@ if prompt := st.chat_input("Say something"):
     # session state.
     with st.chat_message("assistant"):
         response = st.write_stream(stream)
-    st.session_state.messages.append({"role": "assistant", "content": response})
-    st.session_state.reset = True
+    st.session_state.messages_gpt.append({"role": "assistant", "content": response})
+    st.session_state.reset_gpt = True
 
-if st.session_state.reset:
+if st.session_state.reset_gpt:
     st.button('reset chat',on_click=reset)
