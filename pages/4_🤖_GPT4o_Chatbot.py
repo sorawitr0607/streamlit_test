@@ -23,7 +23,7 @@ st.sidebar.header("About")
 
 st.sidebar.markdown(
     """
-This app retrieves 🤖[OPENAI API](https://platform.openai.com/docs/api-reference/introduction). (Max Tokens --> 512))
+This app retrieves 💸[OPENAI API](https://platform.openai.com/docs/api-reference/introduction). (Max Tokens --> 512))
 
 
 """)
