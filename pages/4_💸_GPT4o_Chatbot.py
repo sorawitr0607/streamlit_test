@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 
 st.set_page_config(layout='centered', page_title="OPENAI API", page_icon="😎")
-st.title('🤖 GPT4o Chatbot')
+st.title('💸 GPT4o Chatbot')
 
 #################################################
 #Sidebar
